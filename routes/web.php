@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('distributor', 'distributorController');
+Route::resource('pasok', 'pasokController');
+Route::resource('buku', 'bukuController');
