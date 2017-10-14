@@ -14,5 +14,22 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('distributor', 'distributorController');
+Route::resource('pasok', 'pasokController');
+Route::resource('buku', 'bukuController');
 Route::resource('kasir', 'KasirController');
-Route::resource('penjualan','PenjualanController');
+Route::resource('penjualan', 'PenjualanController');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

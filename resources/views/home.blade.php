@@ -1,0 +1,21 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Dashboard</div>
+
+                <div class="panel-body">
+                    <a href="kasir">Kasir</a><br>
+                    <a href="penjualan">Penjualan</a><br>
+                    <a href="buku">Buku</a><br>
+                    <a href="pasok">Pasok</a><br>
+                    <a href="distributor">Distributor</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

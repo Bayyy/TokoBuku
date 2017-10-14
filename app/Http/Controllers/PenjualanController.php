@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Penjualan;
 use App\Kasir;
+use App\Buku;
 
 
 
