@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Penjualan;
-use App\Buku;
+use App\Kasir;
 
 
 
@@ -28,8 +28,7 @@ class PenjualanController extends Controller
      */
     public function create()
     {
-        $buku = Buku::all();
-        $kasir = kasir::all();
+        $penjualan = Penjualan::all();
         return view('penjualan.create');
 
     }
@@ -42,7 +41,24 @@ class PenjualanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $this->validate($request, [
+        'id_buku' => 'required',
+        'id_kasir' => 'required',
+        'jumlah' => 'required',
+        'total' => 'required',
+        'tanggal' => 'required',
+    ]);
+         $penjualan= new Penjualan;
+
+         $penjualan->id_buku = $request->id_buku;
+         $penjualan->id_kasir = $request->id_kasir;
+         $penjualan->jumlah = $request->jumlah;
+         $penjualan->total = $request->total;
+         $penjualan->tanggal = $request->tanggal;
+
+         $penjualan->save();
+         return redirect('penjualan');
+
     }
 
     /**
@@ -53,7 +69,8 @@ class PenjualanController extends Controller
      */
     public function show($id)
     {
-        //
+        $penjualan = Penjualan::find($id);
+        return view('penjualan.detail')->with('penjualan',$penjualan);
     }
 
     /**
@@ -64,9 +81,9 @@ class PenjualanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $penjualan = Penjualan::find($id);
+        return view('penjualan.edit')->with('penjualan',$penjualan);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -76,7 +93,23 @@ class PenjualanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+        'id_buku' => 'required',
+        'id_kasir' => 'required',
+        'jumlah' => 'required',
+        'total' => 'required',
+        'tanggal' => 'required',
+    ]);
+         $penjualan=Penjualan::find($id);
+
+         $penjualan->id_buku = $request->id_buku;
+         $penjualan->id_kasir = $request->id_kasir;
+         $penjualan->jumlah = $request->jumlah;
+         $penjualan->total = $request->total;
+         $penjualan->tanggal = $request->tanggal;
+
+         $penjualan->save();
+         return redirect('penjualan');
     }
 
     /**
@@ -87,6 +120,9 @@ class PenjualanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $penjualan= Penjualan::find($id);
+        $penjualan->delete();
+
+        return redirect('penjualan');
     }
 }
