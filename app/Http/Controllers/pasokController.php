@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pasok;
+use App\Buku;
+use App\Distributor;
 
 class pasokController extends Controller
 {
@@ -12,6 +14,12 @@ class pasokController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $pasok = pasok::all();

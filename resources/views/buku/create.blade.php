@@ -19,6 +19,7 @@
     <input type="text" name="harga_jual" value="" placeholder="Harga Jual"><br>
     <input type="text" name="ppn" value="" placeholder="PPN"><br>
     <input type="text" name="diskon" value="" placeholder="Diskon"><br>
+    
     <input type="submit" value="post">
     <input type="hidden" value="{{ csrf_token() }}" name="_token">
 </form>

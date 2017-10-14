@@ -9,4 +9,9 @@ class Distributor extends Model
     protected $table = 'distributor';
     protected $primaryKey = 'id_distributor';
     public $timestamps = false;
+
+    public function Pasok()
+    {
+    	return $this->hasMany('App\Pasok');
+    }
 }
